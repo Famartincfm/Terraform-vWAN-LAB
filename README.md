@@ -1,7 +1,7 @@
-# vWAN w/ S2S Branch - Terraform
+# vWAN Study LAB w/ S2S Branch - Terraform
 
 Lab with 2 connected vNETs to the hub and an IPSec connection to simulate a branch.
->Everything will be deployed in a single Resource Group which you can then delete to avoid further costs.
+>Everything will be deployed in a single Resource Group which you can then delete to avoid further costs. Each vNET will host a Windows VM so you can test connectivity.
 
 ## Lab Topology created
 
@@ -32,7 +32,7 @@ Variables.tf
 HQ.tf
 Branch.tf
 ```
-Install the azurerm terraform module. This will also upgrade your existing Terraform modules to be compatible, if necessary.
+Install the azurerm terraform module in that location. This will also upgrade your existing Terraform modules to be compatible, if necessary.
 ```
 terraform init --upgrade
 ```
@@ -48,7 +48,7 @@ terraform plan -out main.tfplan
   * User & password for the VM access (Keep in mind Password requirements)
 
 
-Apply the plan which will create the resources
+Apply the plan which will create the resources on your subscription.
 ```
 terraform apply main.tfplan
 ```
