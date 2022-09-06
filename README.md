@@ -1,4 +1,4 @@
-# vWAN Study LAB w/ S2S Branch - Terraform
+# vWAN LAB w/ S2S Branch - Terraform
 
 Lab with 2 connected vNETs to the hub and an IPSec connection to simulate a branch.
 >Everything will be deployed in a single Resource Group which you can then delete to avoid further costs. Each vNET will host a Windows VM so you can test connectivity.
