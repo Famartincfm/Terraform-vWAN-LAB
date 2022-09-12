@@ -1,11 +1,18 @@
-# vWAN LAB w/ S2S Branch - Terraform
+# vWAN LAB - Terraform
 
-Lab with 2 connected vNETs to the hub and an IPSec connection to simulate a branch.
+Several variations of vWAN deployments that can be used in LAB
+
 >Everything will be deployed in a single Resource Group which you can then delete to avoid further costs. Each vNET will host a Windows VM so you can test connectivity.
 
-## Lab Topology created
+## Base topology created
 
 ![2vNET_HUB_Firewall_VPN](https://user-images.githubusercontent.com/101132018/185445495-040fae1b-d94a-4b39-b6c1-6f90c976fe6c.jpg)
+
+Topology variations included:
+- vHUB with S2S branch with VM's on each vNET (default - above diagram)
+  - vHUB with S2S branch <ins>without</ins> VM's - Faster deployment
+  - vHUB with S2S & Firewall <ins>without</ins> VM's - Faster deployment
+- vHUB with Firewall and S2S branch with VM's on each vNET
 
 ## Requirements
 
