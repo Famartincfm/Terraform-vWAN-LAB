@@ -27,21 +27,6 @@ variable "IPAddress" {
   }
 }
 
-variable "vmSize" {
-  description = "VM SKU Size"
-  default = "Standard_DS2_v2"
-}
-
-variable "vm_username" {
-  description = "VM administrator username (Check VM Username Requirements!)"
-  type        = string
-  sensitive   = true
-}
-variable "vm_password" {
-  description = "VM administrator password (Check VM Password Requirements!)"
-  type        = string
-  sensitive   = true
-}
   locals {
   cidr = "${cidrhost("${var.IPAddress}/24", 0)}/24"
   }
