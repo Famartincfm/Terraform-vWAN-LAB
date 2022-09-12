@@ -20,7 +20,7 @@ variable "Branch_location" {
 
 variable "IPAddress" {
   type = string
-  description = "Enter your home IP address. If you do not know it you can go to https://whatismyipaddress.com/. For example: 1.2.3.4 . If you are on MSIT CorpNet, you can just enter 127.0.0.1 as your IP , which is a non-routable IP address (As you don't need an NSG when accessing via CorpNet)."
+  description = "Enter your home IP address. If you do not know it you can go to https://whatismyipaddress.com/. For example: 1.2.3.4 ."
   validation {
     condition = can(regex("\\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b", var.IPAddress))
 	error_message = "Could not parse IP address. Please ensure the IP is a valid IPv4 IP address."
