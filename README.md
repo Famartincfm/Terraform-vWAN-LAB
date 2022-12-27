@@ -1,18 +1,24 @@
 # vWAN LAB - Terraform
 
-Several variations of vWAN deployments that can be used in LAB
+Variations of vWAN deployment that can be used in LAB
 
->Everything will be deployed in a single Resource Group which you can then delete to avoid further costs. Each vNET will host a Windows VM so you can test connectivity.
+>Everything will be deployed in a single Resource Group which you can then delete to avoid further costs. 
+Optionally each vNET will host a Windows VM so you can test connectivity.
 
-## Base topology created
+## Network topology
 
 ![vWAN](https://user-images.githubusercontent.com/62115929/209670483-ee4c2f06-a8b9-40c4-816b-051f5262489d.jpg)
 
 
+### Optional Resources
 
-Topology variations included:
-- vHUB (w/ or w/o Firewall) with S2S branch with VM's on each vNET (default - above diagram)
-  - vHUB (w/ or w/o Firewall) with S2S branch <ins>without</ins> VM's - (Faster deployment)
+- Branch offices (If none is selected it won't deploy any S2S GW on the HQ_Hub as well)
+- Virtual Machines (You can deploy the above design without any VMs)
+- Azure Firewall
+- P2S GW
+- 2nd Hub inside the vWAN
+
+You can choose which resources to deploy from above (or none) decreasing/increasing the deployment time accordingly.
 
 ## Requirements
 
@@ -35,9 +41,11 @@ Confirm Terraform is installed properly by running "terraform -v"
 
 Select your deployment option and open Powershell on the location where you've downloaded the files:
 ```
-Variables.tf
 HQ.tf
+Variables.tf
 Branch.tf
+Branch2.tf
+Outputs.tf (Uncomment to get visibility on VM's public IPs if VMs are deployed)
 ```
 Install the azurerm terraform module in that location. This will also upgrade your existing Terraform modules to be compatible, if necessary.
 ```
@@ -47,19 +55,26 @@ Create the plan to be deployed in Azure:
 ```
 terraform plan -out main.tfplan
 ```
-  * You'll be asked the region to deploy the HQ and Branch resources - you can determine the name of the region you would like to deploy by running the following:
+  * Enter the Resource Group Name where everything will be deployed.
+
+  * Enter the HQ and Branch resources location - Determine the name of the region with below PS:
   ```
     az account list-locations --query "sort_by([?not_null(metadata.geographyGroup)].{Geo:metadata.geographyGroup, Name:name}, &Geo)" -o table
   ```
-  * Define home public IP to be allowed on the NSGs (giving the VM's Public IPs only access to the defined IP)
-  * User & password for the VM access (Keep in mind Password requirements)
+  * Define how many IPsecs you want - This will deploy the remote branches (or not).
+  * Select if you want Azure Firewall, P2S or another Hub in the vWAN. 
+  * User & password for the VM access (Keep in mind Password requirements and if if left blank it won't deploy any VMs)
 
 
 Apply the plan which will create the resources on your subscription.
 ```
 terraform apply main.tfplan
 ```
-Once all resources are created, validate them on Azure Portal. Connect with RDP to the public IPs of the VM’s and have fun testing connectivity.
+Your Public IP will automatically be added to the subnets NSG to restrict access.
+
+Once all resources are created, validate them on Azure Portal. Connect with RDP to the public IPs of the VM’s and have fun testing connectivity :)
+
+
 
 Note: Windows VM’s need to open the OS firewall to allow ICMP
 ```

@@ -5,7 +5,6 @@ output "VM1_Public_IP" {
   description = "Public IP of VM1."
 }
 
-
 output "VM2_Public_IP" {
   value       = length(azurerm_public_ip.VM2_PIP[0].ip_address)
   description = "Public IP of VM2."
