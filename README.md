@@ -8,6 +8,8 @@ Several variations of vWAN deployments that can be used in LAB
 
 ![vWAN](https://user-images.githubusercontent.com/62115929/209670483-ee4c2f06-a8b9-40c4-816b-051f5262489d.jpg)
 
+
+
 Topology variations included:
 - vHUB (w/ or w/o Firewall) with S2S branch with VM's on each vNET (default - above diagram)
   - vHUB (w/ or w/o Firewall) with S2S branch <ins>without</ins> VM's - (Faster deployment)
