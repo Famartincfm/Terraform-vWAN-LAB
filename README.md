@@ -7,8 +7,7 @@ Optionally each vNET will host a Windows VM so you can test connectivity.
 
 ## Network topology
 
-![vWAN](https://user-images.githubusercontent.com/62115929/209670483-ee4c2f06-a8b9-40c4-816b-051f5262489d.jpg)
-
+![vWAN](https://user-images.githubusercontent.com/62115929/209672848-1fc9343f-3bda-4866-83b3-3e30c2ce0fa2.jpg)
 
 ### Optional Resources
 
