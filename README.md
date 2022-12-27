@@ -6,7 +6,7 @@ Several variations of vWAN deployments that can be used in LAB
 
 ## Base topology created
 
-![2vNET_HUB_Firewall_VPN](https://user-images.githubusercontent.com/101132018/185445495-040fae1b-d94a-4b39-b6c1-6f90c976fe6c.jpg)
+![vWAN](https://user-images.githubusercontent.com/62115929/209670483-ee4c2f06-a8b9-40c4-816b-051f5262489d.jpg)
 
 Topology variations included:
 - vHUB (w/ or w/o Firewall) with S2S branch with VM's on each vNET (default - above diagram)
