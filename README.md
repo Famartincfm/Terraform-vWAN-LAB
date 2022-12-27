@@ -1,4 +1,4 @@
-# vWAN LAB - Terraform
+# Virtual WAN LAB - Terraform
 
 Variations of vWAN deployment that can be used in LAB
 
