@@ -11,7 +11,7 @@ Optionally each vNET will host a Windows VM so you can test connectivity.
 
 ### Optional Resources
 
-- Branch offices (If none is selected it won't deploy any S2S GW on the HQ_Hub as well)
+- Remote branch offices (If none is selected it won't deploy any S2S GW on the HQ_Hub as well)
 - Virtual Machines (You can deploy the above design without any VMs)
 - Azure Firewall
 - P2S GW
@@ -55,7 +55,6 @@ Create the plan to be deployed in Azure:
 terraform plan -out main.tfplan
 ```
   * Enter the Resource Group Name where everything will be deployed.
-
   * Enter the HQ and Branch resources location - Determine the name of the region with below PS:
   ```
     az account list-locations --query "sort_by([?not_null(metadata.geographyGroup)].{Geo:metadata.geographyGroup, Name:name}, &Geo)" -o table
@@ -69,10 +68,9 @@ Apply the plan which will create the resources on your subscription.
 ```
 terraform apply main.tfplan
 ```
-Your Public IP will automatically be added to the subnets NSG to restrict access.
+Your Public IP will automatically be added to the subnets NSG to restrict unauthorized access.
 
 Once all resources are created, validate them on Azure Portal. Connect with RDP to the public IPs of the VM’s and have fun testing connectivity :)
-
 
 
 Note: Windows VM’s need to open the OS firewall to allow ICMP
