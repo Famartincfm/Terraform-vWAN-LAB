@@ -67,7 +67,6 @@ Example:
 
 ![Variables](https://user-images.githubusercontent.com/62115929/209817192-83caacad-866d-467e-acf4-663deec3a1b6.jpg)
 
-
 Apply the plan which will create the resources on your subscription.
 ```
 terraform apply main.tfplan
