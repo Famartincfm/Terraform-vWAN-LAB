@@ -65,8 +65,6 @@ terraform plan -out main.tfplan
 
 Example:
 
-
-
 Apply the plan which will create the resources on your subscription.
 ```
 terraform apply main.tfplan
