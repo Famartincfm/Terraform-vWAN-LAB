@@ -63,6 +63,9 @@ terraform plan -out main.tfplan
   * Select if you want Azure Firewall, P2S or another Hub in the vWAN. 
   * User & password for the VM access (Keep in mind Password requirements and if if left blank it won't deploy any VMs)
 
+Example:
+
+
 
 Apply the plan which will create the resources on your subscription.
 ```
