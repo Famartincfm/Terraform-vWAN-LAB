@@ -20,7 +20,7 @@ variable "Remote_branch_location" {
 
 variable "VHUB_IPsec" {
 type = string
-  description = "Do you wish to deploy 1 IPSec branch or 2 IPsec branches in the HQvHUB ? Select '1' or '2' or '0' for **NO** branch"
+  description = "Do you wish to deploy 1 IPSec branch or 2 IPsec branches in the HQvHUB ? Select '1' or '2' for Branch creation or '0' for None"
   validation {
     condition   = lower(var.VHUB_IPsec) == "1" || lower(var.VHUB_IPsec) == "2" || lower(var.VHUB_IPsec) == "0"
     error_message = "Please enter '1' or '2' or '0'"

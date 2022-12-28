@@ -171,27 +171,6 @@ resource "azurerm_virtual_network_gateway" "GW_Branch2" {
   }
 }
 
-# Local network gateway (LNG) to define the vWAN HQ Hub VPN
-#tunnel_ips - The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
-#default_ips - The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration
-
-## LNG is already created from Branch1
-/*
-resource "azurerm_local_network_gateway" "HQ_HUB_VPN_2" {
-
-  count = "${var.VHUB_IPsec == "2" ? 1 : 0}"
-  address_space       = ["10.0.0.0/8"]
-  gateway_address     = tolist(azurerm_vpn_gateway.VPNGW-HUB-HQ.bgp_settings[0].instance_0_bgp_peering_address[0].tunnel_ips)[1]
-  location            = var.Remote_branch_location
-  name                = "HQ_HUB_VPN_2"
-  resource_group_name  = azurerm_resource_group.resourcegroup.name
-  bgp_settings {
-    asn                 = azurerm_vpn_gateway.VPNGW-HUB-HQ.bgp_settings[0].asn
-    bgp_peering_address = tolist(azurerm_vpn_gateway.VPNGW-HUB-HQ.bgp_settings[0].instance_0_bgp_peering_address[0].default_ips)[0]
-  }
-}
-*/
-
 # VPN Connection
 resource "azurerm_virtual_network_gateway_connection" "Branch2-to-HubHQ" {
 count = "${var.VHUB_IPsec == "2" ? 1 : 0}"  
