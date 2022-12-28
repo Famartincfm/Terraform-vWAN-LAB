@@ -11,7 +11,7 @@ Optionally each vNET will host a Windows VM so you can test connectivity.
 
 ### Optional Resources
 
-- One or two S2S Remote branch offices (If none is selected it won't deploy any S2S GW on the HQ_Hub as well)
+- One or two S2S Remote branch offices (If none is selected it won't deploy any S2S GW neither branches)
 - Virtual Machines (You can deploy the above design without any VMs)
 - Azure Firewall
 - P2S GW
